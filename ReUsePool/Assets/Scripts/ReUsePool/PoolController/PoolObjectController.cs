@@ -27,9 +27,9 @@ namespace ReUsePool
             base.Release(t);
         }
 
-        protected override Pool<GameObject> CreatePool(string poolName)
+        protected override IPool<GameObject> CreatePool(string poolName)
         {
-            Pool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>();
+            IPool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>();
             _poolDic.Add(poolName, pool);
             return pool;
         }

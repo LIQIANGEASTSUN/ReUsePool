@@ -27,9 +27,9 @@ namespace ReUsePool
             base.Release(t);
         }
 
-        protected override Pool<IReUse> CreatePool(string poolName)
+        protected override IPool<IReUse> CreatePool(string poolName)
         {
-            Pool<IReUse> pool = new PoolClass<IReUse>();
+            IPool<IReUse> pool = new PoolClass<IReUse>();
             _poolDic.Add(poolName, pool);
             return pool;
         }

@@ -8,7 +8,7 @@ namespace ReUsePool
 
     public abstract class Pool<T> : IPoolOut<T>, IPoolIn<T>, IPool<T>
     {
-        protected int _maxCount = 10;
+        protected int _capacity = 10;
         private Dictionary<int, T> _dic = new Dictionary<int, T>();
 
         public abstract void Release(T t);
@@ -34,7 +34,7 @@ namespace ReUsePool
 
         public virtual void UnSpawn(string name, T t)
         {
-            if (_dic.Count >= _maxCount)
+            if (_dic.Count >= _capacity)
             {
                 Release(t);
                 return;
@@ -47,11 +47,10 @@ namespace ReUsePool
             }
         }
 
-        public void SetMax(int value)
+        public void SetCapacity(int capacity)
         {
-            _maxCount = value;
+            _capacity = capacity;
         }
-
     }
 
 }

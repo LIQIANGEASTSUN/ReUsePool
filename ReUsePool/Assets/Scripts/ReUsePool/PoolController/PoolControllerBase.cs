@@ -7,11 +7,11 @@ namespace ReUsePool
 
     public abstract class PoolControllerBase<T> : IPool<T>
     {
-        protected Dictionary<string, Pool<T>> _poolDic = new Dictionary<string, Pool<T>>();
+        protected Dictionary<string, IPool<T>> _poolDic = new Dictionary<string, IPool<T>>();
 
         public virtual T Spawn(string poolName)
         {
-            Pool<T> pool = GetPool(poolName);
+            IPool<T> pool = GetPool(poolName);
             if (null == pool)
             {
                 return default(T);
@@ -21,7 +21,7 @@ namespace ReUsePool
 
         public virtual void UnSpawn(string poolName, T t)
         {
-            Pool<T> pool = GetPool(poolName);
+            IPool<T> pool = GetPool(poolName);
             if (null == pool)
             {
                 pool = CreatePool(poolName);
@@ -34,13 +34,17 @@ namespace ReUsePool
 
         }
 
-        protected abstract Pool<T> CreatePool(string poolName);
+        protected abstract IPool<T> CreatePool(string poolName);
 
-        protected Pool<T> GetPool(string poolName)
+        protected IPool<T> GetPool(string poolName)
         {
-            Pool<T> pool = null;
+            IPool<T> pool = null;
             _poolDic.TryGetValue(poolName, out pool);
             return pool;
+        }
+
+        public void SetCapacity(int capacity)
+        {
         }
     }
 

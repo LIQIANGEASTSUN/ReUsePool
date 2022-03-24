@@ -31,10 +31,15 @@ namespace ReUsePool
         void Release(T t);
     }
 
+    public interface IPoolCapacity
+    {
+        void SetCapacity(int capacity);
+    }
+
     /// <summary>
     /// 复用池接口
     /// </summary>
-    public interface IPool<T> : IPoolOut<T>, IPoolIn<T>
+    public interface IPool<T> : IPoolOut<T>, IPoolIn<T>, IPoolCapacity
     {
 
     }
