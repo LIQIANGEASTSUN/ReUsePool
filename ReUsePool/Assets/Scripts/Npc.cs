@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc : IReUseClass
+public class Npc/* : IReUseClass*/
 {
     private int _id;
     public Npc(int id)
