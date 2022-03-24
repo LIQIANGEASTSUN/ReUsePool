@@ -8,7 +8,13 @@ public class TestReUsePool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //TestClass();
+        TestClass();
+
+        Debug.LogError("");
+        Debug.LogError("");
+        Debug.LogError("");
+        Debug.LogError("");
+        Debug.LogError("");
 
         TestGameObject();
 
@@ -79,6 +85,9 @@ public class TestReUsePool : MonoBehaviour
 
         GameObject sphereGo = PoolManager.GetInstance().SpawnObject("Sphere");
         Debug.LogError(sphereGo.name + "    " + sphereGo.GetHashCode());
+
+        cubeGo = PoolManager.GetInstance().SpawnObject("Cube");
+        Debug.LogError(cubeGo.name + "    " + cubeGo.GetHashCode());
 
         cubeGo = PoolManager.GetInstance().SpawnObject("Cube");
         Debug.LogError(cubeGo.name + "    " + cubeGo.GetHashCode());
