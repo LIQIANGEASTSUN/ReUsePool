@@ -30,7 +30,6 @@ namespace ReUsePool
         protected override Pool<GameObject> CreatePool(string poolName)
         {
             Pool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>();
-            Debug.LogError("CreatePool:" + poolName);
             _poolDic.Add(poolName, pool);
             return pool;
         }

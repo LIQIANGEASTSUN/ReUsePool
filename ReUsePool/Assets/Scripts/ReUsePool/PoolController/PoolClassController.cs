@@ -30,7 +30,6 @@ namespace ReUsePool
         protected override Pool<IReUse> CreatePool(string poolName)
         {
             Pool<IReUse> pool = new PoolClass<IReUse>();
-            Debug.LogError("CreatePool:" + poolName);
             _poolDic.Add(poolName, pool);
             return pool;
         }
