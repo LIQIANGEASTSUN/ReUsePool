@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ReUsePool
 {
 
-    public abstract class PoolControllerBase<T> : IPool<T>
+    internal abstract class PoolControllerBase<T> : IPool<T>
     {
         protected Dictionary<string, IPool<T>> _poolDic = new Dictionary<string, IPool<T>>();
 
@@ -46,10 +46,11 @@ namespace ReUsePool
         public void SetCapacity(string poolName, int capacity)
         {
             IPool<T> pool = GetPool(poolName);
-            if (null != pool)
+            if (null == pool)
             {
-                pool.SetCapacity(capacity);
+                pool = CreatePool(poolName);
             }
+            pool.SetCapacity(capacity);
         }
 
         public void SetCapacity(int capacity)

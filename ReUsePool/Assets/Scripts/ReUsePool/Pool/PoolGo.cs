@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ReUsePool
 {
-    public class PoolGo<T> : Pool<T> where T : UnityEngine.Object
+    internal class PoolGo<T> : Pool<T> where T : UnityEngine.Object
     {
         public PoolGo(string poolName)
         {
@@ -14,11 +14,19 @@ namespace ReUsePool
         public override T Spawn(string name)
         {
             T t = base.Spawn(name);
+            if (null != t && t is GameObject)
+            {
+                (t as GameObject).SetActive(true);
+            }
             return t;
         }
 
         public override void UnSpawn(string name, T t)
         {
+            if (null != t && t is GameObject)
+            {
+                (t as GameObject).SetActive(false);
+            }
             base.UnSpawn(name, t);
         }
 

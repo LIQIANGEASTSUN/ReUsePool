@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ReUsePool
 {
-    public class PoolClass<T> : Pool<T> where T : IReUse
+    internal class PoolClass<T> : Pool<T> where T : IReUse
     {
 
         public PoolClass(string poolName)

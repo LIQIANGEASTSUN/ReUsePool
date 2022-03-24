@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ReUsePool
 {
 
-    public abstract class Pool<T> : IPoolOut<T>, IPoolIn<T>, IPool<T>
+    internal abstract class Pool<T> : IPoolOut<T>, IPoolIn<T>, IPool<T>
     {
         protected int _capacity = 20;
         protected string _poolName = string.Empty;

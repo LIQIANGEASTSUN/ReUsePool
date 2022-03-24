@@ -10,7 +10,7 @@ namespace ReUsePool
     /// 一个资源名创建一个池子， 资源名作为池子的名字
     /// 注意：不要有重复名字的资源，如果不同资源名字重复了，一定是项目架构中的命名规范有问题
     /// </summary>
-    public class PoolObjectController : PoolControllerBase<UnityEngine.GameObject>
+    internal class PoolObjectController : PoolControllerBase<UnityEngine.GameObject>
     {
         public override UnityEngine.GameObject Spawn(string poolName)
         {
