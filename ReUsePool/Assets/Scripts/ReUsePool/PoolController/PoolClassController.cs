@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace ReUsePool
 {
+    /// <summary>
+    /// 类复用池管理：类复用需要继承 IReUse 接口
+    /// 一个类创建一个池子， typeof(类).Name 作为池子的名字
+    /// </summary>
     public class PoolClassController : IPool<IReUse>
     {
         private Dictionary<string, Pool<IReUse>> _poolDic = new Dictionary<string, Pool<IReUse>>();
-        public PoolClassController()
-        {
-
-        }
 
         public IReUse Spawn(string poolName) 
         {
