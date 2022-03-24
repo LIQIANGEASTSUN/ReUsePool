@@ -9,29 +9,41 @@ namespace ReUsePool
     public abstract class Pool<T> : IPoolOut<T>, IPoolIn<T>, IPool<T>
     {
         protected int _maxCount = 10;
-        private Stack<T> _stack = new Stack<T>();
+        private Dictionary<int, T> _dic = new Dictionary<int, T>();
 
         public abstract void Release(T t);
 
 
         public virtual T Spawn(string name)
         {
-            if (_stack.Count > 0)
+            if (_dic.Count <= 0)
             {
-                return _stack.Pop();
+                return default(T);
             }
-            return default(T);
+
+            int key = -1;
+            foreach (var kv in _dic)
+            {
+                key = kv.Key;
+                break;
+            }
+            T t = _dic[key];
+            _dic.Remove(key);
+            return t;
         }
 
         public virtual void UnSpawn(string name, T t)
         {
-            if (_stack.Count < _maxCount)
-            {
-                _stack.Push(t);
-            }
-            else
+            if (_dic.Count >= _maxCount)
             {
                 Release(t);
+                return;
+            }
+
+            int hashCode = t.GetHashCode();
+            if (!_dic.ContainsKey(hashCode))
+            {
+                _dic.Add(hashCode, t);
             }
         }
 

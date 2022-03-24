@@ -14,7 +14,7 @@ namespace ReUsePool
             {
                 t.Spawn();
             }
-            return base.Spawn(name);
+            return t;
         }
 
         public override void UnSpawn(string name, T t)

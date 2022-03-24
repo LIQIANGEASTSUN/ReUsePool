@@ -8,30 +8,29 @@ namespace ReUsePool
     public class PoolClassController : IPool<IReUse>
     {
         private Dictionary<string, Pool<IReUse>> _poolDic = new Dictionary<string, Pool<IReUse>>();
-
         public PoolClassController()
         {
 
         }
 
-        public IReUse Spawn(string name)
+        public IReUse Spawn(string poolName) 
         {
-            Pool<IReUse> pool = GetPool(name);
+            Pool<IReUse> pool = GetPool(poolName);
             if (null == pool)
             {
                 return null;
             }
-            return pool.Spawn(name);
+            return pool.Spawn(string.Empty);
         }
 
-        public void UnSpawn(string name, IReUse t)
+        public void UnSpawn(string poolName, IReUse t)
         {
             Pool<IReUse> pool = GetPool(t);
             if (null == pool)
             {
                 pool = CreatePool(t);
             }
-            pool.UnSpawn(name, t);
+            pool.UnSpawn(string.Empty, t);
         }
 
         public void Release(IReUse t)
@@ -43,6 +42,7 @@ namespace ReUsePool
         {
             string typeName = TypeName(t);
             Pool<IReUse> pool = new PoolClass<IReUse>();
+            Debug.LogError("CreatePool:" + typeName);
             _poolDic.Add(typeName, pool);
             return pool;
         }

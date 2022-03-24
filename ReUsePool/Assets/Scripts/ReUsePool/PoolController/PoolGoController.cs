@@ -26,7 +26,7 @@ namespace ReUsePool
 
         public void UnSpawn(string name, UnityEngine.Object t)
         {
-            Pool<UnityEngine.Object> pool = GetPool(t);
+            Pool<UnityEngine.Object> pool = GetPool(name);
             if (null == pool)
             {
                 pool = CreatePool(t);
@@ -45,12 +45,6 @@ namespace ReUsePool
             Pool<UnityEngine.Object> pool = new PoolGo<UnityEngine.Object>();
             _poolDic.Add(typeName, pool);
             return pool;
-        }
-
-        private Pool<UnityEngine.Object> GetPool(UnityEngine.Object t)
-        {
-            string typeName = TypeName(t);
-            return GetPool(typeName);
         }
 
         private Pool<UnityEngine.Object> GetPool(string poolName)

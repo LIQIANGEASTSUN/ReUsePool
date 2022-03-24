@@ -19,8 +19,8 @@ namespace ReUsePool
 
         public override void Release(T t)
         {
-            GameObject.Destroy(t);
             Debug.LogError("Release:" + t.GetType().Name);
+            GameObject.Destroy(t);
         }
     }
 

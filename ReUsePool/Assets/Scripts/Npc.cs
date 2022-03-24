@@ -1,27 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ReUsePool;
 
-public class Npc/* : IReUseClass*/
+public class Npc : IReUse
 {
-    private int _id;
+    public int _id;
     public Npc(int id)
     {
         _id = id;
     }
 
-    public void Recycle()
-    {
-        Debug.LogError("Recycle:" + _id);
-    }
-
     public void Release()
     {
-        Debug.LogError("Release:" + _id);
+        Debug.LogError("Npc Release:" + _id);
     }
 
     public void Spawn()
     {
-        Debug.LogError("Spawn:" + _id);
+        Debug.LogError("Npc Spawn:" + _id);
+    }
+
+    public void UnSpawn()
+    {
+        Debug.LogError("Npc UnSpawn:" + _id);
+    }
+}
+
+
+public class Player : IReUse
+{
+    public int _id;
+    public Player(int id)
+    {
+        _id = id;
+    }
+
+    public void Release()
+    {
+        Debug.LogError("Player Release:" + _id);
+    }
+
+    public void Spawn()
+    {
+        Debug.LogError("Player Spawn:" + _id);
+    }
+
+    public void UnSpawn()
+    {
+        Debug.LogError("Player UnSpawn:" + _id);
     }
 }
