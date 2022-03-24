@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ReUsePool
 {
 
-    public class PoolGoController : PoolController<UnityEngine.Object>
+    public class PoolObjectController : PoolController<UnityEngine.Object>
     {
         public override Pool<UnityEngine.Object> CreatePool(UnityEngine.Object t)
         {
