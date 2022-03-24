@@ -17,7 +17,6 @@ public class TestReUsePool : MonoBehaviour
         Debug.LogError("");
 
         TestGameObject();
-
     }
 
     // Update is called once per frame
@@ -38,6 +37,8 @@ public class TestReUsePool : MonoBehaviour
 
         Npc npc = PoolManager.GetInstance().SpawnClass<Npc>() as Npc;
         Debug.Log(npc._id);
+
+        PoolManager.GetInstance().SetSpawnClassCapacity<Npc>(15);
 
         Npc npc2 = new Npc(200);
         PoolManager.GetInstance().UnSpawnClass<Npc>(npc2);

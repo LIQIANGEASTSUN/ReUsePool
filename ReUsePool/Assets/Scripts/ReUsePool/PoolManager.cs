@@ -22,6 +22,12 @@ namespace ReUsePool
             poolClassController.UnSpawn(poolName, t);
         }
 
+        public void SetSpawnClassCapacity<T>(int capacity)
+        {
+            string poolName = typeof(T).Name;
+            poolClassController.SetCapacity(poolName, capacity);
+        }
+
         public UnityEngine.GameObject SpawnObject(string resName)
         {
             return poolObjectController.Spawn(resName);
@@ -30,6 +36,12 @@ namespace ReUsePool
         public void UnSpawnObject(string resName, UnityEngine.GameObject t)
         {
             poolObjectController.UnSpawn(resName, t);
+        }
+
+        public void SetSpawnObjectCapacity<T>(int capacity)
+        {
+            string poolName = typeof(T).Name;
+            poolObjectController.SetCapacity(poolName, capacity);
         }
 
     }

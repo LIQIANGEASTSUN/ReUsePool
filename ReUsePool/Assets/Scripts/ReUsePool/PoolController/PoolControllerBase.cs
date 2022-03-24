@@ -43,6 +43,15 @@ namespace ReUsePool
             return pool;
         }
 
+        public void SetCapacity(string poolName, int capacity)
+        {
+            IPool<T> pool = GetPool(poolName);
+            if (null != pool)
+            {
+                pool.SetCapacity(capacity);
+            }
+        }
+
         public void SetCapacity(int capacity)
         {
         }

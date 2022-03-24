@@ -29,7 +29,7 @@ namespace ReUsePool
 
         protected override IPool<GameObject> CreatePool(string poolName)
         {
-            IPool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>();
+            IPool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>(poolName);
             _poolDic.Add(poolName, pool);
             return pool;
         }

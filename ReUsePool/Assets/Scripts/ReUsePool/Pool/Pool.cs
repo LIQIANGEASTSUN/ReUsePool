@@ -8,11 +8,14 @@ namespace ReUsePool
 
     public abstract class Pool<T> : IPoolOut<T>, IPoolIn<T>, IPool<T>
     {
-        protected int _capacity = 10;
+        protected int _capacity = 20;
+        protected string _poolName = string.Empty;
         private Dictionary<int, T> _dic = new Dictionary<int, T>();
 
-        public abstract void Release(T t);
-
+        public void SetPoolName(string poolName)
+        {
+            _poolName = poolName;
+        }
 
         public virtual T Spawn(string name)
         {
@@ -46,6 +49,8 @@ namespace ReUsePool
                 _dic.Add(hashCode, t);
             }
         }
+
+        public abstract void Release(T t);
 
         public void SetCapacity(int capacity)
         {

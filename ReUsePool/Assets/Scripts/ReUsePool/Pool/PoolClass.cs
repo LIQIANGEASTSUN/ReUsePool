@@ -7,6 +7,11 @@ namespace ReUsePool
     public class PoolClass<T> : Pool<T> where T : IReUse
     {
 
+        public PoolClass(string poolName)
+        {
+            SetPoolName(poolName);
+        }
+
         public override T Spawn(string name)
         {
             T t = base.Spawn(name);
@@ -26,7 +31,6 @@ namespace ReUsePool
         public override void Release(T t)
         {
             t.Release();
-            Debug.LogError("Release:" + t.GetType().Name);
         }
     }
 }
