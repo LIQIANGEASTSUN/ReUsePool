@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace ReUsePool
 {
-    public class PoolClassController : PoolController<IReUse>
+
+    public class PoolObjectController : PoolController<UnityEngine.Object>
     {
-        public override Pool<IReUse> CreatePool(IReUse t)
+        public override Pool<UnityEngine.Object> CreatePool(UnityEngine.Object t)
         {
             string typeName = TypeName(t);
-            Pool<IReUse> pool = new PoolClass<IReUse>();
+            Pool<UnityEngine.Object> pool = new PoolGo<UnityEngine.Object>();
             _poolDic.Add(typeName, pool);
             return pool;
         }
