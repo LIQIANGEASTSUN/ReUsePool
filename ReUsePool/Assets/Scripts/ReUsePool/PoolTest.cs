@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using ReUsePool;
 
-/*
-
 
 public class Npc : IReUse
 {
@@ -14,9 +12,9 @@ public class Npc : IReUse
         _id = id;
     }
 
-    public void Release()
+    public void ReUseOverflowRelease()
     {
-        Debug.LogError("Npc Release:" + _id);
+        Debug.LogError("Npc ReUseOverflowRelease:" + _id);
     }
 
     public void Spawn()
@@ -39,9 +37,9 @@ public class Player : IReUse
         _id = id;
     }
 
-    public void Release()
+    public void ReUseOverflowRelease()
     {
-        Debug.LogError("Player Release:" + _id);
+        Debug.LogError("Player ReUseOverflowRelease:" + _id);
     }
 
     public void Spawn()
@@ -77,7 +75,7 @@ public class PoolTest : MonoBehaviour
         PoolManager.GetInstance().SetSpawnClassCapacity<Npc>(15);
 
         // 从复用池取出一个对象
-        Npc npc = PoolManager.GetInstance().SpawnClass<Npc>() as Npc;
+        Npc npc = PoolManager.GetInstance().SpawnClass<Npc>(typeof(Npc).Name) as Npc;
         // 如果复用池为空则自己创建一个对象，因为对象创建过程复杂
         // 所以不在复用池中实例化对象
         if (null == npc)
@@ -88,7 +86,7 @@ public class PoolTest : MonoBehaviour
         PoolManager.GetInstance().UnSpawnClass<Npc>(npc);
 
         // 从复用池中取一个对象
-        Npc npc2 = PoolManager.GetInstance().SpawnClass<Npc>() as Npc;
+        Npc npc2 = PoolManager.GetInstance().SpawnClass<Npc>(typeof(Npc).Name) as Npc;
         Debug.Log("npc2:" + npc2._id);
         #endregion
 
@@ -102,7 +100,7 @@ public class PoolTest : MonoBehaviour
         PoolManager.GetInstance().UnSpawnClass<Player>(player);
 
         // 从Player 复用池中取出一个对象
-        Player player2 = PoolManager.GetInstance().SpawnClass<Player>();
+        Player player2 = PoolManager.GetInstance().SpawnClass<Player>(typeof(Player).Name);
         Debug.LogError(player2._id);
         #endregion
 
@@ -151,4 +149,3 @@ public class PoolTest : MonoBehaviour
     }
 }
 
-*/

@@ -22,9 +22,9 @@ namespace ReUsePool
             return t;
         }
 
-        public override void UnSpawn(string name, T t)
+        public override void UnSpawn(string poolName, T t)
         {
-            base.UnSpawn(name, t);
+            base.UnSpawn(poolName, t);
             t.UnSpawn();
         }
 

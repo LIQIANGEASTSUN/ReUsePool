@@ -17,7 +17,7 @@ namespace ReUsePool
             _poolName = poolName;
         }
 
-        public virtual T Spawn(string name)
+        public virtual T Spawn(string poolName)
         {
             if (_dic.Count <= 0)
             {
@@ -35,7 +35,7 @@ namespace ReUsePool
             return t;
         }
 
-        public virtual void UnSpawn(string name, T t)
+        public virtual void UnSpawn(string poolName, T t)
         {
             if (_dic.Count >= _capacity)
             {

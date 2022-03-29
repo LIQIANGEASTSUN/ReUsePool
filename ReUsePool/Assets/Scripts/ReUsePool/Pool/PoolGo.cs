@@ -21,13 +21,13 @@ namespace ReUsePool
             return t;
         }
 
-        public override void UnSpawn(string name, T t)
+        public override void UnSpawn(string poolName, T t)
         {
             if (null != t && t is GameObject)
             {
                 (t as GameObject).SetActive(false);
             }
-            base.UnSpawn(name, t);
+            base.UnSpawn(poolName, t);
         }
 
         public override void ReUseOverflowRelease(T t)

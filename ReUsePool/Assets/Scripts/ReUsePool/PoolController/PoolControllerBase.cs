@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ReUsePool
 {
 
-    internal abstract class PoolControllerBase<T> : IPool<T>
+    public abstract class PoolControllerBase<T> : IPool<T>
     {
         protected Dictionary<string, IPool<T>> _poolDic = new Dictionary<string, IPool<T>>();
 
@@ -19,7 +19,7 @@ namespace ReUsePool
             return pool.Spawn(poolName);
         }
 
-        public virtual void UnSpawn(string poolName, T t)
+        public void UnSpawn(string poolName, T t)
         {
             IPool<T> pool = GetPool(poolName);
             if (null == pool)

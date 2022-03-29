@@ -9,17 +9,12 @@ namespace ReUsePool
     /// 类复用池管理：类复用需要继承 IReUse 接口
     /// 一个类创建一个池子， typeof(类).Name 作为池子的名字
     /// </summary>
-    internal class PoolClassController : PoolControllerBase<IReUse>
+    public class PoolClassController : PoolControllerBase<IReUse>
     {
 
         public override IReUse Spawn(string poolName)
         {
             return base.Spawn(poolName);
-        }
-
-        public override void UnSpawn(string poolName, IReUse t)
-        {
-            base.UnSpawn(poolName, t);
         }
 
         protected override IPool<IReUse> CreatePool(string poolName)

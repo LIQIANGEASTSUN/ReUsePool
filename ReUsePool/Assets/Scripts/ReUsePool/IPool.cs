@@ -26,7 +26,7 @@ namespace ReUsePool
     /// <typeparam name="T"></typeparam>
     public interface IPoolIn<in T>
     {
-        void UnSpawn(string name, T t);
+        void UnSpawn(string poolName, T t);
 
         void ReUseOverflowRelease(T t);
     }

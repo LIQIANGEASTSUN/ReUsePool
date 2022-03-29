@@ -17,11 +17,6 @@ namespace ReUsePool
             return base.Spawn(poolName);
         }
 
-        public override void UnSpawn(string poolName, UnityEngine.GameObject t)
-        {
-            base.UnSpawn(poolName, t);
-        }
-
         protected override IPool<GameObject> CreatePool(string poolName)
         {
             IPool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>(poolName);
