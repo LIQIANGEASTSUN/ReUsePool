@@ -30,7 +30,7 @@ namespace ReUsePool
             base.UnSpawn(name, t);
         }
 
-        public override void Release(T t)
+        public override void ReUseOverflowRelease(T t)
         {
             GameObject.Destroy(t);
         }

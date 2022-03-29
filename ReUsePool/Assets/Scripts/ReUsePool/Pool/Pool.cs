@@ -39,7 +39,7 @@ namespace ReUsePool
         {
             if (_dic.Count >= _capacity)
             {
-                Release(t);
+                ReUseOverflowRelease(t);
                 return;
             }
 
@@ -50,7 +50,7 @@ namespace ReUsePool
             }
         }
 
-        public abstract void Release(T t);
+        public abstract void ReUseOverflowRelease(T t);
 
         public void SetCapacity(int capacity)
         {
@@ -61,7 +61,7 @@ namespace ReUsePool
         {
             foreach (var kv in _dic)
             {
-                Release(kv.Value);
+                ReUseOverflowRelease(kv.Value);
             }
             _dic.Clear();
         }

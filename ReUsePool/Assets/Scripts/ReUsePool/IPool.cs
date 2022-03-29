@@ -9,7 +9,7 @@ namespace ReUsePool
     {
         void Spawn();
         void UnSpawn();
-        void Release();
+        void ReUseOverflowRelease();
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace ReUsePool
     {
         void UnSpawn(string name, T t);
 
-        void Release(T t);
+        void ReUseOverflowRelease(T t);
     }
 
     public interface IPoolCapacity

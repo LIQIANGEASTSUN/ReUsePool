@@ -22,11 +22,6 @@ namespace ReUsePool
             base.UnSpawn(poolName, t);
         }
 
-        public override void Release(IReUse t)
-        {
-            base.Release(t);
-        }
-
         protected override IPool<IReUse> CreatePool(string poolName)
         {
             IPool<IReUse> pool = new PoolClass<IReUse>(poolName);

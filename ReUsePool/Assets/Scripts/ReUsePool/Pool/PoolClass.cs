@@ -28,9 +28,9 @@ namespace ReUsePool
             t.UnSpawn();
         }
 
-        public override void Release(T t)
+        public override void ReUseOverflowRelease(T t)
         {
-            t.Release();
+            t.ReUseOverflowRelease();
         }
     }
 }

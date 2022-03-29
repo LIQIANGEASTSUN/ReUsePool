@@ -22,11 +22,6 @@ namespace ReUsePool
             base.UnSpawn(poolName, t);
         }
 
-        public override void Release(UnityEngine.GameObject t)
-        {
-            base.Release(t);
-        }
-
         protected override IPool<GameObject> CreatePool(string poolName)
         {
             IPool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>(poolName);

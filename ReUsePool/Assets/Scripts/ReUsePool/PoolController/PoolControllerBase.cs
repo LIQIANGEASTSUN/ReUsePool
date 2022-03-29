@@ -29,7 +29,7 @@ namespace ReUsePool
             pool.UnSpawn(poolName, t);
         }
 
-        public virtual void Release(T t)
+        public virtual void ReUseOverflowRelease(T t)
         {
 
         }

@@ -11,7 +11,7 @@ public class Npc : IReUse
         _id = id;
     }
 
-    public void Release()
+    public void ReUseOverflowRelease()
     {
         Debug.LogError("Npc Release:" + _id);
     }
@@ -36,7 +36,7 @@ public class Player : IReUse
         _id = id;
     }
 
-    public void Release()
+    public void ReUseOverflowRelease()
     {
         Debug.LogError("Player Release:" + _id);
     }
