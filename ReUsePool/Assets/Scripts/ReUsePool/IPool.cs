@@ -41,6 +41,6 @@ namespace ReUsePool
     /// </summary>
     public interface IPool<T> : IPoolOut<T>, IPoolIn<T>, IPoolCapacity
     {
-
+        void Clear();
     }
 }

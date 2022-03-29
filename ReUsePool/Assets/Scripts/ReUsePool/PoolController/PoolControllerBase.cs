@@ -56,6 +56,16 @@ namespace ReUsePool
         public void SetCapacity(int capacity)
         {
         }
+
+        public virtual void Clear()
+        {
+            foreach(var kv in _poolDic)
+            {
+                kv.Value.Clear();
+            }
+            _poolDic.Clear();
+        }
+
     }
 
 }

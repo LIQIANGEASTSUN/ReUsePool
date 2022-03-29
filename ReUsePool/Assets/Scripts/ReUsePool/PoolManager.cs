@@ -75,5 +75,11 @@ namespace ReUsePool
             string poolName = typeof(T).Name;
             poolObjectController.SetCapacity(poolName, capacity);
         }
+
+        public void Clear()
+        {
+            poolClassController.Clear();
+            poolObjectController.Clear();
+        }
     }
 }
