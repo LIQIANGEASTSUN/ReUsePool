@@ -34,7 +34,7 @@ namespace ReUsePool
         /// </summary>
         public void UnSpawnClass<T>(T t) where T : class, IReUse
         {
-            string poolName = typeof(T).Name;
+            string poolName = t.GetType().Name;
             poolClassController.UnSpawn(poolName, t);
         }
 
