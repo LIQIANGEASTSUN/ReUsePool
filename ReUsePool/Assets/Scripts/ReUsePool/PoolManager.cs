@@ -74,6 +74,12 @@ namespace ReUsePool
             poolObjectController.SetCapacity(poolName, capacity);
         }
 
+        public void PoolClear(string poolName)
+        {
+            poolClassController.PoolClear(poolName);
+            poolObjectController.PoolClear(poolName);
+        }
+
         public void Clear()
         {
             poolClassController.Clear();

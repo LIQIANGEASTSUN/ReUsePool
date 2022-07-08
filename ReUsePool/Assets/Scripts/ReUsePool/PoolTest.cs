@@ -61,7 +61,7 @@ public class PoolTest : MonoBehaviour
     {
         TestClass();
 
-        TestGameObject();
+        //TestGameObject();
     }
 
     // 测试类复用池
@@ -86,8 +86,8 @@ public class PoolTest : MonoBehaviour
         PoolManager.GetInstance().UnSpawnClass<Npc>(npc);
 
         // 从复用池中取一个对象
-        Npc npc2 = PoolManager.GetInstance().SpawnClass<Npc>(typeof(Npc).Name) as Npc;
-        Debug.Log("npc2:" + npc2._id);
+        //Npc npc2 = PoolManager.GetInstance().SpawnClass<Npc>(typeof(Npc).Name) as Npc;
+        //Debug.Log("npc2:" + npc2._id);
         #endregion
 
         #region Player
@@ -100,8 +100,13 @@ public class PoolTest : MonoBehaviour
         PoolManager.GetInstance().UnSpawnClass<Player>(player);
 
         // 从Player 复用池中取出一个对象
-        Player player2 = PoolManager.GetInstance().SpawnClass<Player>(typeof(Player).Name);
-        Debug.LogError(player2._id);
+        //Player player2 = PoolManager.GetInstance().SpawnClass<Player>(typeof(Player).Name);
+        //Debug.LogError(player2._id);
+
+        //PoolManager.GetInstance().Clear();
+        PoolManager.GetInstance().PoolClear(typeof(Npc).Name);
+        PoolManager.GetInstance().PoolClear(typeof(Player).Name);
+
         #endregion
 
     }

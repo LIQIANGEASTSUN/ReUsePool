@@ -27,6 +27,15 @@ namespace ReUsePool
             pool.UnSpawn(poolName, t);
         }
 
+        public void PoolClear(string poolName)
+        {
+            IPool<T> pool = GetPool(poolName);
+            if (null != pool)
+            {
+                pool.Clear();
+            }
+        }
+
         public virtual void ReUseOverflowRelease(T t)
         {
 
