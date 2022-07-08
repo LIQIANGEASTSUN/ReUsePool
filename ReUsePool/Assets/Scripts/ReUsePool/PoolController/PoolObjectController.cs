@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ReUsePool
 {
@@ -26,49 +24,3 @@ namespace ReUsePool
     }
 
 }
-
-
-//public class PoolObjectController : IPool<UnityEngine.GameObject>
-//{
-//    private Dictionary<string, Pool<UnityEngine.GameObject>> _poolDic = new Dictionary<string, Pool<UnityEngine.GameObject>>();
-
-//    public UnityEngine.GameObject Spawn(string poolName)
-//    {
-//        Pool<UnityEngine.GameObject> pool = GetPool(poolName);
-//        if (null == pool)
-//        {
-//            return null;
-//        }
-//        return pool.Spawn(poolName);
-//    }
-
-//    public void UnSpawn(string poolName, UnityEngine.GameObject t)
-//    {
-//        Pool<UnityEngine.GameObject> pool = GetPool(poolName);
-//        if (null == pool)
-//        {
-//            pool = CreatePool(poolName);
-//        }
-//        pool.UnSpawn(poolName, t);
-//    }
-
-//    public void Release(UnityEngine.GameObject t)
-//    {
-
-//    }
-
-//    private Pool<UnityEngine.GameObject> CreatePool(string poolName)
-//    {
-//        Pool<UnityEngine.GameObject> pool = new PoolGo<UnityEngine.GameObject>();
-//        Debug.LogError("CreatePool:" + poolName);
-//        _poolDic.Add(poolName, pool);
-//        return pool;
-//    }
-
-//    private Pool<UnityEngine.GameObject> GetPool(string poolName)
-//    {
-//        Pool<UnityEngine.GameObject> pool = null;
-//        _poolDic.TryGetValue(poolName, out pool);
-//        return pool;
-//    }
-//}
